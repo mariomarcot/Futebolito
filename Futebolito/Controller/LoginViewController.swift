@@ -36,7 +36,7 @@ extension LoginViewController: ViewConfiguration {
         ])
     }
     func setupAdditionalConfiguration() {
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
 }
 
