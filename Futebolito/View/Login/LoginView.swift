@@ -31,11 +31,12 @@ class LoginView: UIView {
     }()
     
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailLabel, passwordLabel, buttonLogin])
+        let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField, buttonLogin, buttonRegister])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 10
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
+
         
         return stackView
         
@@ -47,10 +48,24 @@ class LoginView: UIView {
         emailLabel.numberOfLines = 0
         emailLabel.text = "E-mail"
         emailLabel.textColor = .black
-
+        
         emailLabel.font = .boldSystemFont(ofSize: 16)
         
         return emailLabel
+    }()
+    
+    lazy var emailTextField: FutebolitoTextField = {
+        let textfield = FutebolitoTextField(
+            placeholder: "Digite seu e-mail ou usuário",
+            keyboardType: .emailAddress
+        )
+        textfield.didTapReturnKeyboard = { self.passwordTextField.becomeFirstResponder() }
+        
+        textfield.didChangeSelection = {
+            
+        }
+        
+        return textfield
     }()
     
     private lazy var passwordLabel: UILabel = {
@@ -64,6 +79,19 @@ class LoginView: UIView {
         return passwordLabel
     }()
     
+    lazy var passwordTextField: FutebolitoTextField = {
+        let textfield = FutebolitoTextField(
+            placeholder: "Digite sua senha",
+            keyboardType: .default
+        )
+        
+        textfield.didChangeSelection = {
+            
+        }
+        
+        return textfield
+    }()
+    
     private lazy var buttonLogin: UIButton = {
        let buttonLogin = UIButton()
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
@@ -74,6 +102,18 @@ class LoginView: UIView {
         buttonLogin.setTitleColor(.black, for: .normal)
         
         return buttonLogin
+    }()
+    
+    private lazy var buttonRegister: UIButton = {
+       let buttonRegister = UIButton()
+        buttonRegister.translatesAutoresizingMaskIntoConstraints = false
+        buttonRegister.layer.cornerRadius = 8
+        buttonRegister.setTitle("Registrar", for: .normal)
+        buttonRegister.backgroundColor = UIColor(named: "yellowColor")
+        buttonRegister.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        buttonRegister.setTitleColor(.black, for: .normal)
+        
+        return buttonRegister
     }()
     
     private lazy var lineView: UIView = {
@@ -122,7 +162,7 @@ class LoginView: UIView {
     private lazy var signInAppleImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "appleLogo")
+        image.image = UIImage(named: "AppleLogo")
         return image
     }()
     
@@ -171,22 +211,22 @@ extension LoginView: ViewConfiguration {
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             backgroundView.heightAnchor.constraint(equalToConstant: viewHeight),
             
-            imageLogo.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20),
+            imageLogo.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -16),
             imageLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             imageLogo.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             imageLogo.heightAnchor.constraint(equalToConstant: 100),
             
-            stackView.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 32),
+            stackView.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            stackView.heightAnchor.constraint(equalToConstant: 200),
+            stackView.heightAnchor.constraint(equalToConstant: 260),
             
-            lineView.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 100),
+
             lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             lineView.heightAnchor.constraint(equalToConstant: 0.5),
             
-            signInGoogleView.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 36),
+            signInGoogleView.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 30),
             signInGoogleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
             signInGoogleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
             signInGoogleView.heightAnchor.constraint(equalToConstant: 40),
@@ -202,6 +242,7 @@ extension LoginView: ViewConfiguration {
             signInAppleView.topAnchor.constraint(equalTo: signInGoogleView.bottomAnchor, constant: 10),
             signInAppleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
             signInAppleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
+            signInAppleView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             signInAppleView.heightAnchor.constraint(equalToConstant: 40),
             
             signInAppleImageView.leadingAnchor.constraint(equalTo: signInAppleView.leadingAnchor, constant: 52),
