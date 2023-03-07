@@ -1,4 +1,4 @@
-//
+    //
 //  LoginView.swift
 //  Futebolito
 //
@@ -14,9 +14,12 @@ class LoginView: UIView {
         backgroundView.backgroundColor = UIColor(named: "greenColor")
         backgroundView.layer.masksToBounds = true
         backgroundView.translatesAutoresizingMaskIntoConstraints = false
-        
+        backgroundView.clipsToBounds = true
+        backgroundView.layer.cornerRadius = 50
+        backgroundView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return backgroundView
     }()
+    
     
     private lazy var imageLogo: UIImageView = {
        let imageLogo = UIImageView()
@@ -73,6 +76,65 @@ class LoginView: UIView {
         return buttonLogin
     }()
     
+    private lazy var lineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(named: "greenColor")
+        return view
+    }()
+    
+    private lazy var signInGoogleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor(named: "greenColor")?.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
+    private lazy var signInGoogleImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "googleLogo")
+        return image
+    }()
+    
+    private lazy var signInGoogleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.text = "Entrar com Google"
+        return label
+    }()
+    
+    private lazy var signInAppleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        view.layer.borderColor = UIColor(named: "greenColor")?.cgColor
+        view.layer.borderWidth = 1
+        return view
+    }()
+    
+    private lazy var signInAppleImageView: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "appleLogo")
+        return image
+    }()
+    
+    private lazy var signInAppleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.text = "Entrar com Apple"
+        return label
+    }()
+    
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -89,25 +151,68 @@ extension LoginView: ViewConfiguration {
         addSubview(backgroundView)
         addSubview(imageLogo)
         addSubview(stackView)
+        addSubview(lineView)
+        addSubview(signInGoogleView)
+        signInGoogleView.addSubview(signInGoogleLabel)
+        signInGoogleView.addSubview(signInGoogleImageView)
+        addSubview(signInAppleView)
+        signInAppleView.addSubview(signInAppleLabel)
+        signInAppleView.addSubview(signInAppleImageView)
+ 
 
     }
     
     func setupConstraints() {
+        let screenHeight = UIScreen.main.bounds.height
+        let viewHeight = screenHeight * 0.4
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             backgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            backgroundView.heightAnchor.constraint(equalToConstant: 330),
+            backgroundView.heightAnchor.constraint(equalToConstant: viewHeight),
             
-            imageLogo.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -10),
+            imageLogo.bottomAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: -20),
             imageLogo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             imageLogo.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             imageLogo.heightAnchor.constraint(equalToConstant: 100),
             
-            stackView.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 30),
+            stackView.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 32),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            stackView.heightAnchor.constraint(equalToConstant: 200)
+            stackView.heightAnchor.constraint(equalToConstant: 200),
+            
+            lineView.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 100),
+            lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
+            lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
+            lineView.heightAnchor.constraint(equalToConstant: 0.5),
+            
+            signInGoogleView.topAnchor.constraint(equalTo: lineView.bottomAnchor, constant: 36),
+            signInGoogleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
+            signInGoogleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
+            signInGoogleView.heightAnchor.constraint(equalToConstant: 40),
+            
+            signInGoogleImageView.leadingAnchor.constraint(equalTo: signInGoogleView.leadingAnchor, constant: 52),
+            signInGoogleImageView.centerYAnchor.constraint(equalTo: signInGoogleView.centerYAnchor),
+            signInGoogleImageView.heightAnchor.constraint(equalToConstant: 20),
+            signInGoogleImageView.widthAnchor.constraint(equalToConstant: 20),
+            
+            signInGoogleLabel.centerXAnchor.constraint(equalTo: signInGoogleView.centerXAnchor),
+            signInGoogleLabel.centerYAnchor.constraint(equalTo: signInGoogleView.centerYAnchor),
+            
+            signInAppleView.topAnchor.constraint(equalTo: signInGoogleView.bottomAnchor, constant: 10),
+            signInAppleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
+            signInAppleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
+            signInAppleView.heightAnchor.constraint(equalToConstant: 40),
+            
+            signInAppleImageView.leadingAnchor.constraint(equalTo: signInAppleView.leadingAnchor, constant: 52),
+            signInAppleImageView.centerYAnchor.constraint(equalTo: signInAppleView.centerYAnchor),
+            signInAppleImageView.heightAnchor.constraint(equalToConstant: 20),
+            signInAppleImageView.widthAnchor.constraint(equalToConstant: 20),
+            
+            signInAppleLabel.leadingAnchor.constraint(equalTo: signInAppleImageView.trailingAnchor, constant: 20),
+            signInAppleLabel.centerYAnchor.constraint(equalTo: signInAppleView.centerYAnchor)
+            
+            
         ])
     }
     
