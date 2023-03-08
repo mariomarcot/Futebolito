@@ -1,4 +1,4 @@
-    //
+//
 //  LoginView.swift
 //  Futebolito
 //
@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol loginViewProtocol: AnyObject {
+    func tappedLogin()
+    func tappedRegister()
+}
+
 class LoginView: UIView {
+    
+    weak var delegate: loginViewProtocol?
     
     private lazy var backgroundView: UIView = {
         let backgroundView = UIView()
@@ -22,21 +29,20 @@ class LoginView: UIView {
     
     
     private lazy var imageLogo: UIImageView = {
-       let imageLogo = UIImageView()
+        let imageLogo = UIImageView()
         imageLogo.translatesAutoresizingMaskIntoConstraints = false
-        imageLogo.contentMode = .scaleToFill
+        imageLogo.contentMode = .scaleAspectFill
         imageLogo.image = UIImage(named: "logoImage")
         
         return imageLogo
     }()
     
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField, buttonLogin, buttonRegister])
+        let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField, buttonLogin, buttonRegister, forgotPasswordButton])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 10
+        stackView.spacing = 16
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-
         
         return stackView
         
@@ -48,7 +54,6 @@ class LoginView: UIView {
         emailLabel.numberOfLines = 0
         emailLabel.text = "E-mail"
         emailLabel.textColor = .black
-        
         emailLabel.font = .boldSystemFont(ofSize: 16)
         
         return emailLabel
@@ -56,7 +61,7 @@ class LoginView: UIView {
     
     lazy var emailTextField: FutebolitoTextField = {
         let textfield = FutebolitoTextField(
-            placeholder: "Digite seu e-mail ou usuário",
+            placeholder: "Digite seu e-mail",
             keyboardType: .emailAddress
         )
         textfield.didTapReturnKeyboard = { self.passwordTextField.becomeFirstResponder() }
@@ -93,27 +98,40 @@ class LoginView: UIView {
     }()
     
     private lazy var buttonLogin: UIButton = {
-       let buttonLogin = UIButton()
+        let buttonLogin = UIButton()
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.layer.cornerRadius = 8
         buttonLogin.setTitle("Entrar", for: .normal)
         buttonLogin.backgroundColor = UIColor(named: "yellowColor")
         buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonLogin.setTitleColor(.black, for: .normal)
+        buttonLogin.addTarget(self, action: #selector(tappedLogin), for: .touchUpInside)
         
         return buttonLogin
     }()
     
     private lazy var buttonRegister: UIButton = {
-       let buttonRegister = UIButton()
+        let buttonRegister = UIButton()
         buttonRegister.translatesAutoresizingMaskIntoConstraints = false
         buttonRegister.layer.cornerRadius = 8
         buttonRegister.setTitle("Registrar", for: .normal)
         buttonRegister.backgroundColor = UIColor(named: "yellowColor")
         buttonRegister.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonRegister.setTitleColor(.black, for: .normal)
+        buttonRegister.addTarget(self, action: #selector(tappedRegister), for: .touchUpInside)
         
         return buttonRegister
+    }()
+    
+    private lazy var forgotPasswordButton: UIButton = {
+        let forgotPasswordButton = UIButton()
+        forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
+        forgotPasswordButton.setTitle("Esqueceu sua senha?", for: .normal)
+        forgotPasswordButton.tintColor = .black
+        forgotPasswordButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .bold)
+        forgotPasswordButton.setTitleColor(.black, for: .normal)
+        
+        return forgotPasswordButton
     }()
     
     private lazy var lineView: UIView = {
@@ -162,7 +180,7 @@ class LoginView: UIView {
     private lazy var signInAppleImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "AppleLogo")
+        image.image = UIImage(named: "appleLogo")
         return image
     }()
     
@@ -184,6 +202,14 @@ class LoginView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    @objc func tappedRegister() {
+        self.delegate?.tappedRegister()
+    }
+    
+    @objc func tappedLogin() {
+        self.delegate?.tappedLogin()
+    }
 }
 
 extension LoginView: ViewConfiguration {
@@ -198,13 +224,12 @@ extension LoginView: ViewConfiguration {
         addSubview(signInAppleView)
         signInAppleView.addSubview(signInAppleLabel)
         signInAppleView.addSubview(signInAppleImageView)
- 
-
+        
     }
     
     func setupConstraints() {
         let screenHeight = UIScreen.main.bounds.height
-        let viewHeight = screenHeight * 0.4
+        let viewHeight = screenHeight * 0.3
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: self.topAnchor),
             backgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -219,9 +244,8 @@ extension LoginView: ViewConfiguration {
             stackView.topAnchor.constraint(equalTo: backgroundView.bottomAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            stackView.heightAnchor.constraint(equalToConstant: 260),
+            stackView.heightAnchor.constraint(equalToConstant: 300),
             
-
             lineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 40),
             lineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -40),
             lineView.heightAnchor.constraint(equalToConstant: 0.5),
@@ -242,7 +266,7 @@ extension LoginView: ViewConfiguration {
             signInAppleView.topAnchor.constraint(equalTo: signInGoogleView.bottomAnchor, constant: 10),
             signInAppleView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 48),
             signInAppleView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -48),
-            signInAppleView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -50),
+            signInAppleView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -52),
             signInAppleView.heightAnchor.constraint(equalToConstant: 40),
             
             signInAppleImageView.leadingAnchor.constraint(equalTo: signInAppleView.leadingAnchor, constant: 52),
@@ -250,7 +274,7 @@ extension LoginView: ViewConfiguration {
             signInAppleImageView.heightAnchor.constraint(equalToConstant: 20),
             signInAppleImageView.widthAnchor.constraint(equalToConstant: 20),
             
-            signInAppleLabel.leadingAnchor.constraint(equalTo: signInAppleImageView.trailingAnchor, constant: 20),
+            signInAppleLabel.centerXAnchor.constraint(equalTo: signInAppleView.centerXAnchor),
             signInAppleLabel.centerYAnchor.constraint(equalTo: signInAppleView.centerYAnchor)
             
             

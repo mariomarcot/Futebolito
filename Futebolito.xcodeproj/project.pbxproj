@@ -15,6 +15,10 @@
 		AC7D129229B6493B0041610C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC7D129029B6493B0041610C /* LaunchScreen.storyboard */; };
 		AC7D129F29B64F300041610C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D129E29B64F300041610C /* LoginView.swift */; };
 		AC7D12A229B652890041610C /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D12A129B652890041610C /* ViewConfiguration.swift */; };
+		AC915EB729B8FFF300788E26 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC915EB629B8FFF300788E26 /* RegisterView.swift */; };
+		AC915EB929B9001900788E26 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC915EB829B9001900788E26 /* RegisterViewController.swift */; };
+		AC915EBC29B9159900788E26 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC915EBB29B9159900788E26 /* HomeView.swift */; };
+		AC915EBE29B915A800788E26 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC915EBD29B915A800788E26 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		AC7D129329B6493B0041610C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC7D129E29B64F300041610C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		AC7D12A129B652890041610C /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		AC915EB629B8FFF300788E26 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		AC915EB829B9001900788E26 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AC915EBB29B9159900788E26 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		AC915EBD29B915A800788E26 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				AC7D129E29B64F300041610C /* LoginView.swift */,
+				AC915EB629B8FFF300788E26 /* RegisterView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -100,6 +109,7 @@
 		AC7D129A29B64E920041610C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AC915EBA29B9157E00788E26 /* Home */,
 				916BFD3D29B66B0D008B4F16 /* Login */,
 			);
 			path = View;
@@ -109,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				AC7D128929B6493A0041610C /* LoginViewController.swift */,
+				AC915EB829B9001900788E26 /* RegisterViewController.swift */,
+				AC915EBD29B915A800788E26 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +131,14 @@
 				AC7D12A129B652890041610C /* ViewConfiguration.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AC915EBA29B9157E00788E26 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AC915EBB29B9159900788E26 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +211,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC915EBC29B9159900788E26 /* HomeView.swift in Sources */,
 				AC7D128A29B6493A0041610C /* LoginViewController.swift in Sources */,
 				AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */,
 				AC7D129F29B64F300041610C /* LoginView.swift in Sources */,
+				AC915EB929B9001900788E26 /* RegisterViewController.swift in Sources */,
+				AC915EBE29B915A800788E26 /* HomeViewController.swift in Sources */,
+				AC915EB729B8FFF300788E26 /* RegisterView.swift in Sources */,
 				AC7D12A229B652890041610C /* ViewConfiguration.swift in Sources */,
 				917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */,
 				AC7D128829B6493A0041610C /* SceneDelegate.swift in Sources */,

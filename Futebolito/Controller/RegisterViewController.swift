@@ -1,0 +1,41 @@
+//
+//  RegisterViewController.swift
+//  Futebolito
+//
+//  Created by Mario Tromba on 08/03/23.
+//
+
+import UIKit
+
+class RegisterViewController: UIViewController {
+    
+    private let registerView: RegisterView = {
+        let registerView = RegisterView()
+        registerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return registerView
+    }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+    }
+}
+
+extension RegisterViewController: ViewConfiguration {
+    func buildViewHierarchy() {
+        view.addSubview(registerView)
+    }
+    
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            registerView.topAnchor.constraint(equalTo: view.topAnchor),
+            registerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            registerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            registerView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+    func setupAdditionalConfiguration() {
+        view.backgroundColor = .white
+    }
+}

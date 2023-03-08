@@ -126,10 +126,10 @@ extension FutebolitoTextField: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         
-        self.textField.layer.borderColor = UIColor.systemGray.cgColor
+        self.textField.layer.borderColor = UIColor(named: "yellowColor")?.cgColor
         self.textField.layer.borderWidth = 2
         self.label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        self.label.textColor = UIColor(named: "mainYellow")
+        self.label.textColor = UIColor(named: "yellowColor")
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {

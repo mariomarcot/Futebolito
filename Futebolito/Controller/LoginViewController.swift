@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        loginView.delegate = self
         
     }
 }
@@ -35,8 +36,21 @@ extension LoginViewController: ViewConfiguration {
             loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
+    
     func setupAdditionalConfiguration() {
         view.backgroundColor = .white
+        navigationItem.backButtonTitle = "Voltar"
+        navigationController?.navigationBar.tintColor = UIColor(named: "greenColor")
     }
 }
 
+extension LoginViewController: loginViewProtocol {
+    func tappedLogin() {
+    }
+    
+    func tappedRegister() {
+        let registerViewController = RegisterViewController()
+        navigationController?.pushViewController(registerViewController, animated: true)
+    }
+    
+}
