@@ -46,6 +46,9 @@ extension LoginViewController: ViewConfiguration {
 
 extension LoginViewController: loginViewProtocol {
     func tappedLogin() {
+        let homeViewController = HomeViewController()
+        navigationController?.pushViewController(homeViewController, animated: true)
+        
     }
     
     func tappedRegister() {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A729B923C300E218C6 /* MatchTableViewCell.swift */; };
+		911D39AA29B9436700E218C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A929B9436700E218C6 /* UIView+Extension.swift */; };
+		911D39AC29B9463400E218C6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39AB29B9463400E218C6 /* CustomAlert.swift */; };
 		917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */; };
 		AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D128529B6493A0041610C /* AppDelegate.swift */; };
 		AC7D128829B6493A0041610C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D128729B6493A0041610C /* SceneDelegate.swift */; };
@@ -22,6 +25,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		911D39A729B923C300E218C6 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
+		911D39A929B9436700E218C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		911D39AB29B9463400E218C6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutebolitoTextField.swift; sourceTree = "<group>"; };
 		AC7D128229B6493A0041610C /* Futebolito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Futebolito.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC7D128529B6493A0041610C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */,
+				911D39AB29B9463400E218C6 /* CustomAlert.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -121,6 +128,7 @@
 				AC7D128929B6493A0041610C /* LoginViewController.swift */,
 				AC915EB829B9001900788E26 /* RegisterViewController.swift */,
 				AC915EBD29B915A800788E26 /* HomeViewController.swift */,
+				911D39A729B923C300E218C6 /* MatchTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				AC7D12A129B652890041610C /* ViewConfiguration.swift */,
+				911D39A929B9436700E218C6 /* UIView+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -211,14 +220,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */,
 				AC915EBC29B9159900788E26 /* HomeView.swift in Sources */,
 				AC7D128A29B6493A0041610C /* LoginViewController.swift in Sources */,
 				AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */,
 				AC7D129F29B64F300041610C /* LoginView.swift in Sources */,
 				AC915EB929B9001900788E26 /* RegisterViewController.swift in Sources */,
+				911D39AA29B9436700E218C6 /* UIView+Extension.swift in Sources */,
 				AC915EBE29B915A800788E26 /* HomeViewController.swift in Sources */,
 				AC915EB729B8FFF300788E26 /* RegisterView.swift in Sources */,
 				AC7D12A229B652890041610C /* ViewConfiguration.swift in Sources */,
+				911D39AC29B9463400E218C6 /* CustomAlert.swift in Sources */,
 				917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */,
 				AC7D128829B6493A0041610C /* SceneDelegate.swift in Sources */,
 			);
