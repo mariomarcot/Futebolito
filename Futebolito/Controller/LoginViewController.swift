@@ -23,6 +23,7 @@ class LoginViewController: UIViewController {
     }
 }
 
+//MARK: - ViewConfiguration
 extension LoginViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(loginView)
@@ -44,10 +45,27 @@ extension LoginViewController: ViewConfiguration {
     }
 }
 
+//MARK: - loginViewProtocol
 extension LoginViewController: loginViewProtocol {
     func tappedLogin() {
-        let homeViewController = HomeViewController()
-        navigationController?.pushViewController(homeViewController, animated: true)
+        let tabBarVC = UITabBarController()
+        
+        let vc1 = HomeViewController()
+        let vc2 = SecondViewController()
+        let vc3 = ThirdViewController()
+        let vc4 = FourthViewController()
+        
+        vc1.title = "Home"
+        vc2.title = "Ligas"
+        vc3.title = "Notícias"
+        vc4.title = "Perfil"
+        
+        tabBarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: true)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.tabBar.isTranslucent = false
+        tabBarVC.view.tintColor = .red
+        tabBarVC.view.backgroundColor = .white
+        navigationController?.pushViewController(tabBarVC, animated: true)
         
     }
     
@@ -57,3 +75,30 @@ extension LoginViewController: loginViewProtocol {
     }
     
 }
+
+class SecondViewController : UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .red
+        title = "Ligas"
+    }
+}
+
+class ThirdViewController : UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .blue
+        title = "Notícias"
+    }
+}
+
+class FourthViewController : UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .green
+        title = "Perfil"
+    }
+}
+
+
+

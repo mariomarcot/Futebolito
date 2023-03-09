@@ -22,6 +22,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+//MARK: - ViewConfiguration
 extension RegisterViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(registerView)

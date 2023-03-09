@@ -89,6 +89,7 @@ class FutebolitoTextField: UIView {
     }
 }
 
+//MARK: - ViewConfiguration
 extension FutebolitoTextField: ViewConfiguration {
 
     
@@ -116,6 +117,7 @@ extension FutebolitoTextField: ViewConfiguration {
     }
 }
 
+//MARK: - UITextFieldDelegate
 extension FutebolitoTextField: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

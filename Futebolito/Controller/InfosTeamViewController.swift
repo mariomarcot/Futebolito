@@ -23,6 +23,7 @@ class InfosTeamViewController: UIViewController {
     
 }
 
+//MARK: - ViewConfiguration
 extension InfosTeamViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(infosTeamView)

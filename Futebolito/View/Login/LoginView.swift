@@ -180,7 +180,7 @@ class LoginView: UIView {
     private lazy var signInAppleImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "AppleLogo")
+        image.image = UIImage(named: "appleLogo")
         return image
     }()
     
@@ -209,8 +209,10 @@ class LoginView: UIView {
     
     @objc func tappedLogin() {
         self.delegate?.tappedLogin()
+        
     }
 }
+
 
 extension LoginView: ViewConfiguration {
     func buildViewHierarchy() {
@@ -282,3 +284,4 @@ extension LoginView: ViewConfiguration {
     }
     
 }
+

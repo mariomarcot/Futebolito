@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         let buttonLogin = UIButton()
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.layer.cornerRadius = 8
-        buttonLogin.setTitle("Todas as Ligas", for: .normal)
+        buttonLogin.setTitle("Jogos Hoje", for: .normal)
         buttonLogin.backgroundColor = UIColor(named: "yellowColor")
         buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonLogin.setTitleColor(.black, for: .normal)
@@ -67,6 +67,8 @@ class HomeViewController: UIViewController {
         matchsTableView.delegate = self
     }
 }
+
+//MARK: - UITableViewDataSource
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
@@ -85,6 +87,8 @@ extension HomeViewController: UITableViewDataSource {
     
     
 }
+
+//MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -120,6 +124,7 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
+//MARK: - ViewConfiguration
 extension HomeViewController: ViewConfiguration {
     func buildViewHierarchy() {
         view.addSubview(stackView)

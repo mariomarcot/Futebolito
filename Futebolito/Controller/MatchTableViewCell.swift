@@ -129,6 +129,8 @@ class MatchTableViewCell: UITableViewCell {
     }
     
 }
+
+//MARK: - ViewConfiguration
 extension MatchTableViewCell: ViewConfiguration {
     func buildViewHierarchy() {
         contentView.addSubview(backgroundViews)
