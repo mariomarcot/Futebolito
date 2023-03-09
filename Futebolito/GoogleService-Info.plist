@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>943932267542-hlp31km31esl2o0fevaem1lp9g7mnml9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.943932267542-hlp31km31esl2o0fevaem1lp9g7mnml9</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBjtaLCdRuSE1kXJC8xZgzUNk-CffHoD4Q</string>
+	<key>GCM_SENDER_ID</key>
+	<string>943932267542</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mmt.Futebolito</string>
+	<key>PROJECT_ID</key>
+	<string>futebolito-c4ae6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>futebolito-c4ae6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:943932267542:ios:8db29fd97046cd714c6937</string>
+</dict>
+</plist>

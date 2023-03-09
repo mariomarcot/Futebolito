@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
     
@@ -40,3 +41,20 @@ extension RegisterViewController: ViewConfiguration {
         view.backgroundColor = .white
     }
 }
+
+extension RegisterViewController: registerViewProtocol {
+    func tappedConfirm() {
+        let loginView = LoginView()
+        let email = loginView.emailTextField.text
+        let password = loginView.passwordTextField.text
+            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                if let e = error {
+                    print(e)
+                } else {
+                    let homeViewController = HomeViewController()
+                    self.navigationController?.pushViewController(homeViewController, animated: true)
+                }
+            }
+        }
+    }
+

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol registerViewProtocol: AnyObject {
+    func tappedConfirm()
+}
+
 class RegisterView: UIView {
     private lazy var imageLogo: UIImageView = {
         let imageLogo = UIImageView()
@@ -133,6 +137,7 @@ class RegisterView: UIView {
         buttonConfirm.backgroundColor = UIColor(named: "yellowColor")
         buttonConfirm.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonConfirm.setTitleColor(.black, for: .normal)
+        buttonConfirm.addTarget(self, action: #selector(tappedConfirm), for: .touchUpInside)
         
         return buttonConfirm
     }()
