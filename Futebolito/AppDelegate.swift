@@ -13,8 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        return true
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(UIOffset(horizontal: -UIScreen.main.bounds.width, vertical: 0), for: .default)
+        let backButtonImage = UIImage(named: "backButtonImage")
+          UINavigationBar.appearance().backIndicatorImage = backButtonImage
+          UINavigationBar.appearance().backIndicatorTransitionMaskImage = backButtonImage
+          UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.clear], for: .normal)
+          return true
+        
     }
     // MARK: UISceneSession Lifecycle
 

@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loginView.delegate = self
-        
     }
 }
 
@@ -40,31 +39,54 @@ extension LoginViewController: ViewConfiguration {
     
     func setupAdditionalConfiguration() {
         view.backgroundColor = .white
-        navigationItem.backButtonTitle = "Voltar"
-        navigationController?.navigationBar.tintColor = UIColor(named: "greenColor")
+        navigationController?.navigationBar.tintColor = UIColor(named: "yellowColor")
+        
     }
 }
 
 //MARK: - loginViewProtocol
 extension LoginViewController: loginViewProtocol {
     func tappedLogin() {
+        
+        
         let tabBarVC = UITabBarController()
         
-        let vc1 = HomeViewController()
-        let vc2 = SecondViewController()
-        let vc3 = ThirdViewController()
-        let vc4 = FourthViewController()
+        let homeViewController = HomeViewController()
+        let leagueViewController = LeagueViewController()
+        let newsViewController = NewsViewController()
+        let profileViewController = ProfileViewController()
+    
+        homeViewController.tabBarItem = UITabBarItem(title: "Home",
+                                                     image: UIImage(systemName: "house"),
+                                                     selectedImage: UIImage(systemName: "house.fill")
+        )
+        homeViewController.tabBarItem.tag = 0
         
-        vc1.title = "Home"
-        vc2.title = "Ligas"
-        vc3.title = "Notícias"
-        vc4.title = "Perfil"
+        leagueViewController.tabBarItem = UITabBarItem(title: "Ligas",
+                                                       image: UIImage(systemName: "trophy"),
+                                                       selectedImage: UIImage(systemName: "trophy.fill")
+        )
+        leagueViewController.tabBarItem.tag = 1
         
-        tabBarVC.setViewControllers([vc1, vc2, vc3, vc4], animated: true)
+        newsViewController.tabBarItem = UITabBarItem(title: "Notícias",
+                                                     image: UIImage(systemName: "newspaper"),
+                                                     selectedImage: UIImage(systemName: "newspaper.fill")
+        )
+        newsViewController.tabBarItem.tag = 2
+        
+        profileViewController.tabBarItem = UITabBarItem(title: "Perfil",
+                                                        image: UIImage(systemName: "person"),
+                                                        
+                                                        selectedImage: UIImage(systemName: "person.fill")
+        )
+        profileViewController.tabBarItem.tag = 3
+        
+      
+        tabBarVC.setViewControllers([homeViewController, leagueViewController, newsViewController, profileViewController], animated: true)
         tabBarVC.modalPresentationStyle = .fullScreen
         tabBarVC.tabBar.isTranslucent = false
-        tabBarVC.view.tintColor = .red
-        tabBarVC.view.backgroundColor = .white
+        tabBarVC.view.tintColor = .white
+        tabBarVC.view.backgroundColor = .lightGray
         navigationController?.pushViewController(tabBarVC, animated: true)
         
     }
@@ -72,31 +94,6 @@ extension LoginViewController: loginViewProtocol {
     func tappedRegister() {
         let registerViewController = RegisterViewController()
         navigationController?.pushViewController(registerViewController, animated: true)
-    }
-    
-}
-
-class SecondViewController : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .red
-        title = "Ligas"
-    }
-}
-
-class ThirdViewController : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .blue
-        title = "Notícias"
-    }
-}
-
-class FourthViewController : UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .green
-        title = "Perfil"
     }
 }
 

@@ -13,6 +13,9 @@
 		917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */; };
 		919D337529B99A6900FC0D8B /* InfosTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D337429B99A6900FC0D8B /* InfosTeamViewController.swift */; };
 		919D337729B99A8C00FC0D8B /* InfosTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D337629B99A8C00FC0D8B /* InfosTeamView.swift */; };
+		91DC37D929BA55B300397B07 /* LeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37D829BA55B200397B07 /* LeagueViewController.swift */; };
+		91DC37DB29BA55C900397B07 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37DA29BA55C900397B07 /* NewsViewController.swift */; };
+		91DC37DD29BA55DB00397B07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */; };
 		AC2B75A129BA30EE00AD3A2F /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2B75A029BA30EE00AD3A2F /* LeaguesViewController.swift */; };
 		AC2B75A329BA328100AD3A2F /* LeaguesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2B75A229BA328100AD3A2F /* LeaguesCollectionViewCell.swift */; };
 		AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7D128529B6493A0041610C /* AppDelegate.swift */; };
@@ -35,6 +38,9 @@
 		917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutebolitoTextField.swift; sourceTree = "<group>"; };
 		919D337429B99A6900FC0D8B /* InfosTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosTeamViewController.swift; sourceTree = "<group>"; };
 		919D337629B99A8C00FC0D8B /* InfosTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosTeamView.swift; sourceTree = "<group>"; };
+		91DC37D829BA55B200397B07 /* LeagueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueViewController.swift; sourceTree = "<group>"; };
+		91DC37DA29BA55C900397B07 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		AC2B75A029BA30EE00AD3A2F /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		AC2B75A229BA328100AD3A2F /* LeaguesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC7D128229B6493A0041610C /* Futebolito.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Futebolito.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +146,9 @@
 				919D337429B99A6900FC0D8B /* InfosTeamViewController.swift */,
 				AC2B75A029BA30EE00AD3A2F /* LeaguesViewController.swift */,
 				AC2B75A229BA328100AD3A2F /* LeaguesCollectionViewCell.swift */,
+				91DC37D829BA55B200397B07 /* LeagueViewController.swift */,
+				91DC37DA29BA55C900397B07 /* NewsViewController.swift */,
+				91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -234,17 +243,20 @@
 			files = (
 				911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */,
 				AC915EBC29B9159900788E26 /* HomeView.swift in Sources */,
+				91DC37DD29BA55DB00397B07 /* ProfileViewController.swift in Sources */,
 				AC7D128A29B6493A0041610C /* LoginViewController.swift in Sources */,
 				AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */,
 				AC7D129F29B64F300041610C /* LoginView.swift in Sources */,
 				AC915EB929B9001900788E26 /* RegisterViewController.swift in Sources */,
 				911D39AA29B9436700E218C6 /* UIView+Extension.swift in Sources */,
+				91DC37DB29BA55C900397B07 /* NewsViewController.swift in Sources */,
 				AC915EBE29B915A800788E26 /* HomeViewController.swift in Sources */,
 				AC915EB729B8FFF300788E26 /* RegisterView.swift in Sources */,
 				AC7D12A229B652890041610C /* ViewConfiguration.swift in Sources */,
 				919D337729B99A8C00FC0D8B /* InfosTeamView.swift in Sources */,
 				AC2B75A129BA30EE00AD3A2F /* LeaguesViewController.swift in Sources */,
 				911D39AC29B9463400E218C6 /* CustomAlert.swift in Sources */,
+				91DC37D929BA55B300397B07 /* LeagueViewController.swift in Sources */,
 				919D337529B99A6900FC0D8B /* InfosTeamViewController.swift in Sources */,
 				AC2B75A329BA328100AD3A2F /* LeaguesCollectionViewCell.swift in Sources */,
 				917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */,

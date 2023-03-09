@@ -60,6 +60,9 @@ class HomeViewController: UIViewController {
         configureTableView()
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
     
     func configureTableView(){
         matchsTableView.register(MatchTableViewCell.self, forCellReuseIdentifier: "MatchTableViewCell")
@@ -121,6 +124,7 @@ extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let infosTeamViewController = InfosTeamViewController()
         navigationController?.pushViewController(infosTeamViewController, animated: true)
+        navigationItem.backButtonTitle = "Voltar"
     }
 }
 
@@ -146,7 +150,5 @@ extension HomeViewController: ViewConfiguration {
     }
     func setupAdditionalConfiguration() {
         view.backgroundColor = UIColor(named: "greyColor")
-        navigationItem.title = "Partidas"
-        navigationController?.navigationBar.tintColor = UIColor(named: "yellowColor")
     }
 }

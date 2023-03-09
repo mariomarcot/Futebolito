@@ -14,3 +14,14 @@ class LeaguesCollectionViewCell: UICollectionViewCell {
     
     
 }
+extension LeaguesCollectionViewCell: ViewConfiguration {
+    func buildViewHierarchy() {
+        
+    }
+    
+    func setupConstraints() {
+        
+    }
+    
+    
+}

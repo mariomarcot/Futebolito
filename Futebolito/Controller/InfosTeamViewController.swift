@@ -20,7 +20,9 @@ class InfosTeamViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = false
+    }
 }
 
 //MARK: - ViewConfiguration
@@ -40,6 +42,8 @@ extension InfosTeamViewController: ViewConfiguration {
     }
     func setupAdditionalConfiguration() {
         view.backgroundColor = .white
+
+        
     }
     
 }
