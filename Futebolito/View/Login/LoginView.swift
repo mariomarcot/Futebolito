@@ -180,7 +180,7 @@ class LoginView: UIView {
     private lazy var signInAppleImageView: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "appleLogo")
+        image.image = UIImage(named: "AppleLogo")
         return image
     }()
     
