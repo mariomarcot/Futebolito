@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -17,11 +18,51 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: winScene)
         self.window?.makeKeyAndVisible()
         
-        let navigationController = UINavigationController()
-        self.window?.rootViewController = navigationController
+        if Auth.auth().currentUser == nil {
+            window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
+            
+            self.window?.makeKeyAndVisible()
+        } else {
+            let tabBarVC = UITabBarController()
+            
+            let homeViewController = HomeViewController()
+            let leagueViewController = LeagueViewController()
+            let newsViewController = NewsViewController()
+            let profileViewController = ProfileViewController()
         
-        let viewController = LoginViewController()
-        navigationController.pushViewController(viewController , animated: true)
+            homeViewController.tabBarItem = UITabBarItem(title: "Home",
+                                                         image: UIImage(systemName: "house"),
+                                                         selectedImage: UIImage(systemName: "house.fill")
+            )
+            homeViewController.tabBarItem.tag = 0
+            
+            leagueViewController.tabBarItem = UITabBarItem(title: "Ligas",
+                                                           image: UIImage(systemName: "trophy"),
+                                                           selectedImage: UIImage(systemName: "trophy.fill")
+            )
+            leagueViewController.tabBarItem.tag = 1
+            
+            newsViewController.tabBarItem = UITabBarItem(title: "Notícias",
+                                                         image: UIImage(systemName: "newspaper"),
+                                                         selectedImage: UIImage(systemName: "newspaper.fill")
+            )
+            newsViewController.tabBarItem.tag = 2
+            
+            profileViewController.tabBarItem = UITabBarItem(title: "Perfil",
+                                                            image: UIImage(systemName: "person"),
+                                                            
+                                                            selectedImage: UIImage(systemName: "person.fill")
+            )
+            profileViewController.tabBarItem.tag = 3
+            
+          let navigationController = UINavigationController(rootViewController: homeViewController)
+            tabBarVC.setViewControllers([navigationController, leagueViewController, newsViewController, profileViewController], animated: true)
+            tabBarVC.modalPresentationStyle = .fullScreen
+            tabBarVC.tabBar.isTranslucent = false
+            tabBarVC.view.tintColor = .white
+            tabBarVC.view.backgroundColor = .lightGray
+            window?.rootViewController = tabBarVC
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

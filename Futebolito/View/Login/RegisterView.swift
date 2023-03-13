@@ -95,7 +95,8 @@ class RegisterView: UIView {
     lazy var passwordTextField: FutebolitoTextField = {
         let textfield = FutebolitoTextField(
             placeholder: "Coloque sua senha",
-            keyboardType: .default
+            keyboardType: .default,
+            isPassword: true
         )
         
         textfield.didChangeSelection = {
@@ -119,7 +120,8 @@ class RegisterView: UIView {
     lazy var passwordConfirmTextField: FutebolitoTextField = {
         let textfield = FutebolitoTextField(
             placeholder: "Repita sua senha",
-            keyboardType: .default
+            keyboardType: .default,
+            isPassword: true
         )
         
         textfield.didChangeSelection = {
@@ -129,7 +131,7 @@ class RegisterView: UIView {
         return textfield
     }()
     
-    private lazy var buttonConfirm: UIButton = {
+        lazy var buttonConfirm: UIButton = {
         let buttonConfirm = UIButton()
         buttonConfirm.translatesAutoresizingMaskIntoConstraints = false
         buttonConfirm.layer.cornerRadius = 8
@@ -137,7 +139,7 @@ class RegisterView: UIView {
         buttonConfirm.backgroundColor = UIColor(named: "yellowColor")
         buttonConfirm.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonConfirm.setTitleColor(.black, for: .normal)
-//        buttonConfirm.addTarget(self, action: #selector(tappedConfirm), for: .touchUpInside)
+
         
         return buttonConfirm
     }()

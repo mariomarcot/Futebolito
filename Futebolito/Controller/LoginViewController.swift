@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
+    
+    var auth: Auth?
     
     private let loginView: LoginView = {
         let loginView = LoginView()
         loginView.translatesAutoresizingMaskIntoConstraints = false
         return loginView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -48,47 +51,74 @@ extension LoginViewController: ViewConfiguration {
 extension LoginViewController: loginViewProtocol {
     func tappedLogin() {
         
+        let password = loginView.passwordTextField.text
+        let email = loginView.emailTextField.text
         
-        let tabBarVC = UITabBarController()
-        
-        let homeViewController = HomeViewController()
-        let leagueViewController = LeagueViewController()
-        let newsViewController = NewsViewController()
-        let profileViewController = ProfileViewController()
-    
-        homeViewController.tabBarItem = UITabBarItem(title: "Home",
-                                                     image: UIImage(systemName: "house"),
-                                                     selectedImage: UIImage(systemName: "house.fill")
-        )
-        homeViewController.tabBarItem.tag = 0
-        
-        leagueViewController.tabBarItem = UITabBarItem(title: "Ligas",
-                                                       image: UIImage(systemName: "trophy"),
-                                                       selectedImage: UIImage(systemName: "trophy.fill")
-        )
-        leagueViewController.tabBarItem.tag = 1
-        
-        newsViewController.tabBarItem = UITabBarItem(title: "Notícias",
-                                                     image: UIImage(systemName: "newspaper"),
-                                                     selectedImage: UIImage(systemName: "newspaper.fill")
-        )
-        newsViewController.tabBarItem.tag = 2
-        
-        profileViewController.tabBarItem = UITabBarItem(title: "Perfil",
-                                                        image: UIImage(systemName: "person"),
-                                                        
-                                                        selectedImage: UIImage(systemName: "person.fill")
-        )
-        profileViewController.tabBarItem.tag = 3
-        
-      
-        tabBarVC.setViewControllers([homeViewController, leagueViewController, newsViewController, profileViewController], animated: true)
-        tabBarVC.modalPresentationStyle = .fullScreen
-        tabBarVC.tabBar.isTranslucent = false
-        tabBarVC.view.tintColor = .white
-        tabBarVC.view.backgroundColor = .lightGray
-        navigationController?.pushViewController(tabBarVC, animated: true)
-        
+        if password.valid(.password) && email.valid(.email) {
+            auth?.signIn(withEmail: email, password: password, completion: { [weak self] user, error in
+                guard let self = self else { return }
+                if error != nil {
+                    CustomAlert(controller: self).exibe(
+                        titulo: "Atenção",
+                        mensagem: error?.localizedDescription ?? ""
+                    )
+                } else {
+                    if user == nil {
+                        
+                        CustomAlert(controller: self).exibe(
+                            titulo: "error",
+                            mensagem: error?.localizedDescription ?? ""
+                        )
+                    } else {
+                        let tabBarVC = UITabBarController()
+                        
+                        let homeViewController = HomeViewController()
+                        let leagueViewController = LeagueViewController()
+                        let newsViewController = NewsViewController()
+                        let profileViewController = ProfileViewController()
+                        
+                        homeViewController.tabBarItem = UITabBarItem(title: "Home",
+                                                                     image: UIImage(systemName: "house"),
+                                                                     selectedImage: UIImage(systemName: "house.fill")
+                        )
+                        homeViewController.tabBarItem.tag = 0
+                        
+                        leagueViewController.tabBarItem = UITabBarItem(title: "Ligas",
+                                                                       image: UIImage(systemName: "trophy"),
+                                                                       selectedImage: UIImage(systemName: "trophy.fill")
+                        )
+                        leagueViewController.tabBarItem.tag = 1
+                        
+                        newsViewController.tabBarItem = UITabBarItem(title: "Notícias",
+                                                                     image: UIImage(systemName: "newspaper"),
+                                                                     selectedImage: UIImage(systemName: "newspaper.fill")
+                        )
+                        newsViewController.tabBarItem.tag = 2
+                        
+                        profileViewController.tabBarItem = UITabBarItem(title: "Perfil",
+                                                                        image: UIImage(systemName: "person"),
+                                                                        
+                                                                        selectedImage: UIImage(systemName: "person.fill")
+                        )
+                        profileViewController.tabBarItem.tag = 3
+                        
+                        
+                        tabBarVC.setViewControllers([homeViewController, leagueViewController, newsViewController, profileViewController], animated: true)
+                        tabBarVC.modalPresentationStyle = .fullScreen
+                        tabBarVC.tabBar.isTranslucent = false
+                        tabBarVC.view.tintColor = .white
+                        tabBarVC.view.backgroundColor = .lightGray
+                        self.navigationController?.pushViewController(tabBarVC, animated: true)
+                        
+                    }
+                }
+            })
+        } else {
+            CustomAlert(controller: self).exibe(
+                titulo: "Atenção",
+                mensagem: "E-mail Invalido"
+            )
+        }
     }
     
     func tappedRegister() {

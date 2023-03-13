@@ -87,7 +87,8 @@ class LoginView: UIView {
     lazy var passwordTextField: FutebolitoTextField = {
         let textfield = FutebolitoTextField(
             placeholder: "Digite sua senha",
-            keyboardType: .default
+            keyboardType: .default,
+            isPassword: true
         )
         
         textfield.didChangeSelection = {
