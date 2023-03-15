@@ -8,7 +8,6 @@
 import UIKit
 
 protocol loginViewProtocol: AnyObject {
-    func tappedLogin()
     func tappedRegister()
 }
 
@@ -98,7 +97,7 @@ class LoginView: UIView {
         return textfield
     }()
     
-    private lazy var buttonLogin: UIButton = {
+     lazy var buttonLogin: UIButton = {
         let buttonLogin = UIButton()
         buttonLogin.translatesAutoresizingMaskIntoConstraints = false
         buttonLogin.layer.cornerRadius = 8
@@ -106,7 +105,6 @@ class LoginView: UIView {
         buttonLogin.backgroundColor = UIColor(named: "yellowColor")
         buttonLogin.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
         buttonLogin.setTitleColor(.black, for: .normal)
-        buttonLogin.addTarget(self, action: #selector(tappedLogin), for: .touchUpInside)
         
         return buttonLogin
     }()
@@ -208,10 +206,6 @@ class LoginView: UIView {
         self.delegate?.tappedRegister()
     }
     
-    @objc func tappedLogin() {
-        self.delegate?.tappedLogin()
-        
-    }
 }
 
 

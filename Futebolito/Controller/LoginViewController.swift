@@ -22,40 +22,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         loginView.delegate = self
-    }
-}
-
-//MARK: - ViewConfiguration
-extension LoginViewController: ViewConfiguration {
-    func buildViewHierarchy() {
-        view.addSubview(loginView)
+        self.auth = Auth.auth()
+        loginView.buttonLogin.addTarget(self, action: #selector(tappedLogin), for: .touchUpInside)
     }
     
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            loginView.topAnchor.constraint(equalTo: view.topAnchor),
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-    }
-    
-    func setupAdditionalConfiguration() {
-        view.backgroundColor = .white
-        navigationController?.navigationBar.tintColor = UIColor(named: "yellowColor")
-        
-    }
-}
-
-//MARK: - loginViewProtocol
-extension LoginViewController: loginViewProtocol {
-    func tappedLogin() {
+    @objc func tappedLogin() {
         
         let password = loginView.passwordTextField.text
         let email = loginView.emailTextField.text
         
         if password.valid(.password) && email.valid(.email) {
-            auth?.signIn(withEmail: email, password: password, completion: { [weak self] user, error in
+            auth?.signIn(withEmail: email, password: password, completion: { [weak self] result, error in
                 guard let self = self else { return }
                 if error != nil {
                     CustomAlert(controller: self).exibe(
@@ -63,7 +40,7 @@ extension LoginViewController: loginViewProtocol {
                         mensagem: error?.localizedDescription ?? ""
                     )
                 } else {
-                    if user == nil {
+                    if result == nil {
                         
                         CustomAlert(controller: self).exibe(
                             titulo: "error",
@@ -120,12 +97,38 @@ extension LoginViewController: loginViewProtocol {
             )
         }
     }
-    
-    func tappedRegister() {
-        let registerViewController = RegisterViewController()
-        navigationController?.pushViewController(registerViewController, animated: true)
-    }
 }
-
-
+    //MARK: - ViewConfiguration
+    extension LoginViewController: ViewConfiguration {
+        func buildViewHierarchy() {
+            view.addSubview(loginView)
+        }
+        
+        func setupConstraints() {
+            NSLayoutConstraint.activate([
+                loginView.topAnchor.constraint(equalTo: view.topAnchor),
+                loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                loginView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+        }
+        
+        func setupAdditionalConfiguration() {
+            view.backgroundColor = .white
+            navigationController?.navigationBar.tintColor = UIColor(named: "yellowColor")
+            
+        }
+    }
+    
+    //MARK: - loginViewProtocol
+    extension LoginViewController: loginViewProtocol {
+        
+        
+        func tappedRegister() {
+            let registerViewController = RegisterViewController()
+            navigationController?.pushViewController(registerViewController, animated: true)
+        }
+    }
+    
+    
 
