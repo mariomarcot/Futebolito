@@ -10,6 +10,7 @@
 		911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A729B923C300E218C6 /* MatchTableViewCell.swift */; };
 		911D39AA29B9436700E218C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A929B9436700E218C6 /* UIView+Extension.swift */; };
 		911D39AC29B9463400E218C6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39AB29B9463400E218C6 /* CustomAlert.swift */; };
+		915BD04F29C269C5007D6AF0 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915BD04E29C269C5007D6AF0 /* ProfileView.swift */; };
 		917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */; };
 		919D337529B99A6900FC0D8B /* InfosTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D337429B99A6900FC0D8B /* InfosTeamViewController.swift */; };
 		919D337729B99A8C00FC0D8B /* InfosTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D337629B99A8C00FC0D8B /* InfosTeamView.swift */; };
@@ -39,6 +40,7 @@
 		911D39A729B923C300E218C6 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		911D39A929B9436700E218C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		911D39AB29B9463400E218C6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		915BD04E29C269C5007D6AF0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		917DBCC829B7A3C000156996 /* FutebolitoTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutebolitoTextField.swift; sourceTree = "<group>"; };
 		919D337429B99A6900FC0D8B /* InfosTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosTeamViewController.swift; sourceTree = "<group>"; };
 		919D337629B99A8C00FC0D8B /* InfosTeamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfosTeamView.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				AC7D129E29B64F300041610C /* LoginView.swift */,
 				AC915EB629B8FFF300788E26 /* RegisterView.swift */,
+				915BD04E29C269C5007D6AF0 /* ProfileView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				AC2B75A329BA328100AD3A2F /* LeaguesCollectionViewCell.swift in Sources */,
 				917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */,
 				91DC37DF29BA7ADC00397B07 /* ExtensionRegex.swift in Sources */,
+				915BD04F29C269C5007D6AF0 /* ProfileView.swift in Sources */,
 				AC7D128829B6493A0041610C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
