@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		910208C529C3A20000E638A3 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910208C429C3A20000E638A3 /* NewsTableViewCell.swift */; };
 		911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A729B923C300E218C6 /* MatchTableViewCell.swift */; };
 		911D39AA29B9436700E218C6 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39A929B9436700E218C6 /* UIView+Extension.swift */; };
 		911D39AC29B9463400E218C6 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911D39AB29B9463400E218C6 /* CustomAlert.swift */; };
@@ -18,6 +19,7 @@
 		91DC37DB29BA55C900397B07 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37DA29BA55C900397B07 /* NewsViewController.swift */; };
 		91DC37DD29BA55DB00397B07 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */; };
 		91DC37DF29BA7ADC00397B07 /* ExtensionRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC37DE29BA7ADC00397B07 /* ExtensionRegex.swift */; };
+		91FCAAD929C3A08C00077A98 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FCAAD829C3A08C00077A98 /* NewsView.swift */; };
 		AC2B75A129BA30EE00AD3A2F /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2B75A029BA30EE00AD3A2F /* LeaguesViewController.swift */; };
 		AC2B75A329BA328100AD3A2F /* LeaguesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2B75A229BA328100AD3A2F /* LeaguesCollectionViewCell.swift */; };
 		AC5ACC9529BA581100F8EC18 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC5ACC9429BA581100F8EC18 /* GoogleService-Info.plist */; };
@@ -37,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		910208C429C3A20000E638A3 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		911D39A729B923C300E218C6 /* MatchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchTableViewCell.swift; sourceTree = "<group>"; };
 		911D39A929B9436700E218C6 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		911D39AB29B9463400E218C6 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
@@ -48,6 +51,7 @@
 		91DC37DA29BA55C900397B07 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		91DC37DE29BA7ADC00397B07 /* ExtensionRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionRegex.swift; sourceTree = "<group>"; };
+		91FCAAD829C3A08C00077A98 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		AC2B75A029BA30EE00AD3A2F /* LeaguesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		AC2B75A229BA328100AD3A2F /* LeaguesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesCollectionViewCell.swift; sourceTree = "<group>"; };
 		AC5ACC9429BA581100F8EC18 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				AC7D129E29B64F300041610C /* LoginView.swift */,
 				AC915EB629B8FFF300788E26 /* RegisterView.swift */,
 				915BD04E29C269C5007D6AF0 /* ProfileView.swift */,
+				91FCAAD829C3A08C00077A98 /* NewsView.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				91DC37D829BA55B200397B07 /* LeagueViewController.swift */,
 				91DC37DA29BA55C900397B07 /* NewsViewController.swift */,
 				91DC37DC29BA55DB00397B07 /* ProfileViewController.swift */,
+				910208C429C3A20000E638A3 /* NewsTableViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +270,7 @@
 			files = (
 				911D39A829B923C300E218C6 /* MatchTableViewCell.swift in Sources */,
 				AC915EBC29B9159900788E26 /* HomeView.swift in Sources */,
+				910208C529C3A20000E638A3 /* NewsTableViewCell.swift in Sources */,
 				91DC37DD29BA55DB00397B07 /* ProfileViewController.swift in Sources */,
 				AC7D128A29B6493A0041610C /* LoginViewController.swift in Sources */,
 				AC7D128629B6493A0041610C /* AppDelegate.swift in Sources */,
@@ -282,6 +289,7 @@
 				AC2B75A329BA328100AD3A2F /* LeaguesCollectionViewCell.swift in Sources */,
 				917DBCC929B7A3C000156996 /* FutebolitoTextField.swift in Sources */,
 				91DC37DF29BA7ADC00397B07 /* ExtensionRegex.swift in Sources */,
+				91FCAAD929C3A08C00077A98 /* NewsView.swift in Sources */,
 				915BD04F29C269C5007D6AF0 /* ProfileView.swift in Sources */,
 				AC7D128829B6493A0041610C /* SceneDelegate.swift in Sources */,
 			);
